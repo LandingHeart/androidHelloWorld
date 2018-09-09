@@ -1,5 +1,6 @@
 package com.example.shinan.androidhelloworld;
 
+import android.graphics.ImageFormat;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -51,13 +52,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView text = (TextView) findViewById(R.id.text1);
         TextView text2 = (TextView) findViewById(R.id.text2);
         final int ORANGE = 0xFFFF3300;
-
+        text.requestFocus();
         switch (v.getId()){
             case R.id.changeButton:
-                text2.setText(text.getText());
-                text.setText("");
-                text.requestFocus();
+                if (!text.getText().toString().equals("")) {
 
+                    text2.setText(text.getText());
+
+                }
+                else {
+                    text2.setText("Hello from Shinan");
+
+                }
+                text.setText("");
                 break;
 
             case R.id.changeButton2:
@@ -66,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.changeButton3:
 
-                view.setBackgroundColor(0xfff00000);
+                view.setBackgroundColor(Color.GREEN);
                 break;
         }
 
